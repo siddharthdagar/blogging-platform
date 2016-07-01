@@ -1,0 +1,17 @@
+Instructions for installation (on debian based systems)
+* This is assuming that python 2.7 would be installed on debian based systems by default. 
+* Essentials to be installed - mysql-server (v 5.5/5.6), pip, virtualenv, git, python-dev. This can be done through apt-get.
+`sudo apt-get install mysql-server python-pip python-virtualenv git python-dev`
+* apt-get installation of mysql would probably prompt for setting the root password. If needed, after the installation a new user can be created.
+* Clone this repository using git clone <link to repo> and browse to the project directory.
+* Start virtual env for the directory using `virtualenv env`
+* Activate virtual env using `source env/bin/activate`
+* Install requirements using `pip install -r requirements.pip`. This will install django along with other required libraries.
+* Create config.py using `cp blog/config.tmp blog/config.py`
+* Next, create a database `echo "CREATE DATABASE <databasename>" | mysql -u <username> -p`
+* Modify config.py with the database details - databasename, username, password. If mysql installed on the same system, don't modify the host and port values.
+* Run `python manage.py migrate`
+* Run `python manage.py runserver 8001`. This will run the test python server at port 8001
+
+
+To-Do - Instructions for deploying on production environment (automation scripts, nginx, uwsgi setup etc.)

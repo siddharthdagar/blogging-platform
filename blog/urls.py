@@ -20,3 +20,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^posts/', include('blogentries.urls'))
 ]
+
+handler500 = 'blogentries.views.handle_500_error'

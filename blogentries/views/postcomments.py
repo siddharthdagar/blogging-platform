@@ -15,8 +15,7 @@ from blogentries.models import Post, PostComponent, Comment
 class PostCommentView(View):
     def get(self, request, *args, **kwargs):
         request = self.request
-
-        result = {}
+        result = dict()
         post = get_object_or_404(Post, uid=kwargs['post_uid'])
         result['data'] = post.get_comments()
 
